@@ -37,7 +37,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "TusharKhan\\DbErrorExplainer\\Laravel\\": "src/"
+      "TusharKhan\\DbErrorExplainer\\Laravel\\": "src/",
+      "TusharKhan\\DbErrorExplainer\\Lib\\": "../../Lib/"
     }
   },
   "extra": {
