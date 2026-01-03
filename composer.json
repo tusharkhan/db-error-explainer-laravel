@@ -1,7 +1,14 @@
 {
   "name": "tusharkhan/db-error-explainer-laravel",
   "description": "Laravel integration for DB Error Explainer - Ignition panels, service providers, and artisan commands",
-  "keywords": ["laravel", "database", "error", "ignition", "debugging", "mysql"],
+  "keywords": [
+    "laravel",
+    "database",
+    "error",
+    "ignition",
+    "debugging",
+    "mysql"
+  ],
   "homepage": "https://github.com/tusharkhan/db-error-explainer-laravel",
   "license": "MIT",
   "authors": [
@@ -19,7 +26,8 @@
     "php": "^8.2",
     "laravel/framework": "^11.0",
     "spatie/laravel-ignition": "^2.0|^3.0",
-    "tusharkhan/db-error-explainer-core": "^1.0|@dev"
+    "tusharkhan/db-error-explainer-core": "^1.0|@dev",
+    "tusharkhan/db-error-explainer-lib": "^1.0|@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "^11.0",
@@ -33,12 +41,18 @@
       "options": {
         "symlink": true
       }
+    },
+    {
+      "type": "path",
+      "url": "../lib",
+      "options": {
+        "symlink": true
+      }
     }
   ],
   "autoload": {
     "psr-4": {
-      "TusharKhan\\DbErrorExplainer\\Laravel\\": "src/",
-      "TusharKhan\\DbErrorExplainer\\Lib\\": "../../Lib/"
+      "TusharKhan\\DbErrorExplainer\\Laravel\\": "src/"
     }
   },
   "extra": {
@@ -51,4 +65,3 @@
   "minimum-stability": "dev",
   "prefer-stable": true
 }
-
