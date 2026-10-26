@@ -1,13 +1,15 @@
 {
   "name": "tusharkhan/db-error-explainer-laravel",
-  "description": "Laravel integration for DB Error Explainer - Ignition panels, service providers, and artisan commands",
+  "description": "Explains Laravel database errors in plain language with a suggested fix: Ignition solutions, a facade and Artisan commands",
   "keywords": [
     "laravel",
     "database",
     "error",
     "ignition",
     "debugging",
-    "mysql"
+    "mysql",
+    "postgresql",
+    "sqlite"
   ],
   "homepage": "https://github.com/tusharkhan/db-error-explainer-laravel",
   "license": "MIT",

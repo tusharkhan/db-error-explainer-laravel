@@ -1,5 +1,7 @@
 # DB Error Explainer for Laravel
 
+[![Latest Version](https://img.shields.io/packagist/v/tusharkhan/db-error-explainer-laravel.svg)](https://packagist.org/packages/tusharkhan/db-error-explainer-laravel)
+[![Downloads](https://img.shields.io/packagist/dt/tusharkhan/db-error-explainer-laravel.svg)](https://packagist.org/packages/tusharkhan/db-error-explainer-laravel)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Explains Laravel database errors in plain language, with a suggested fix, right on the error page.
