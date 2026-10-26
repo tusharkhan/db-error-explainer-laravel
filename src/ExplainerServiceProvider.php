@@ -6,6 +6,8 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\ServiceProvider;
 use Spatie\ErrorSolutions\Contracts\SolutionProviderRepository;
+use TusharKhan\DbErrorExplainer\Laravel\Console\ExplainCommand;
+use TusharKhan\DbErrorExplainer\Laravel\Console\FixStubCommand;
 use TusharKhan\DbErrorExplainer\Laravel\Ignition\DatabaseErrorSolutionProvider;
 
 class ExplainerServiceProvider extends ServiceProvider
@@ -26,6 +28,10 @@ class ExplainerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/db-explainer.php' => config_path('db-explainer.php'),
         ], 'db-explainer-config');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([ExplainCommand::class, FixStubCommand::class]);
+        }
 
         if (config('db-explainer.enabled') && config('db-explainer.ignition')) {
             $this->registerIgnitionSolutions();

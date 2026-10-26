@@ -54,6 +54,46 @@ try {
 
 Connection failures (wrong password, server down) are explained too, without trying to reconnect.
 
+### From the command line
+
+Paste an error from `storage/logs/laravel.log` (the `(Connection: ..., SQL: ...)` part can stay):
+
+```bash
+php artisan db:explain "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'email' cannot be null"
+```
+
+```
+  Type ............................................. null_constraint_violation
+  Code ................................................. 1048 (SQLSTATE 23000)
+  Database ............................................................. mysql
+
+NULL constraint violation: Column "email" requires a value but received NULL. ...
+
+Suggested fix
+--Option 1: Make the column nullable:
+ALTER TABLE `your_table` MODIFY `email` VARCHAR(255) NULL;
+...
+```
+
+Turn the suggested fix into a migration you can review and run:
+
+```bash
+php artisan db:fix-stub "SQLSTATE[HY000]: General error: 1 table items has no column named nope"
+# Migration created: database/migrations/2026_10_26_120000_fix_unknown_column.php
+```
+
+The stub runs the SQL with `DB::unprepared()`. The command warns when the fix lists alternatives or contains placeholders like `your_table` to replace first.
+
+Both commands read the message only; they never run the failing query. Options:
+
+| Option | |
+|---|---|
+| `--connection=` | Connection the error came from (decides MySQL / PostgreSQL / SQLite rules). Default connection when omitted |
+| `--no-schema` | Don't connect to look up table and column details |
+| `--sqlstate=`, `--code=` | Fill these in when the pasted text doesn't start with `SQLSTATE[...]` |
+| `--json` | `db:explain` only: print the full diagnosis as JSON |
+| `--path=` | `db:fix-stub` only: directory for the migration |
+
 ### In your logs
 
 Set `DB_EXPLAINER_LOG=true` and every reported `QueryException` also writes a `Database error diagnosed` entry with the error type and explanation.
