@@ -24,15 +24,20 @@
   },
   "require": {
     "php": "^8.4",
-    "laravel/framework": "^12.0",
-    "spatie/laravel-ignition": "^2.0|^3.0",
+    "illuminate/console": "^12.0|^13.0",
+    "illuminate/database": "^12.0|^13.0",
+    "illuminate/support": "^12.0|^13.0",
     "tusharkhan/db-error-explainer-core": "^1.0|@dev",
     "tusharkhan/db-error-explainer-lib": "^1.0|@dev"
   },
   "require-dev": {
+    "orchestra/testbench": "^10.0|^11.0",
     "phpunit/phpunit": "^12.0",
     "phpstan/phpstan": "^2.0",
-    "orchestra/testbench": "^10.0"
+    "spatie/laravel-ignition": "^2.9"
+  },
+  "suggest": {
+    "spatie/laravel-ignition": "Shows the explanation and fix as a solution on the Ignition error page"
   },
   "repositories": [
     {
@@ -55,11 +60,19 @@
       "TusharKhan\\DbErrorExplainer\\Laravel\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "TusharKhan\\DbErrorExplainer\\Laravel\\Tests\\": "tests/"
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [
-        "TusharKhan\\DbErrorExplainer\\Laravel\\Provider\\ExplainerServiceProvider"
-      ]
+        "TusharKhan\\DbErrorExplainer\\Laravel\\ExplainerServiceProvider"
+      ],
+      "aliases": {
+        "DbExplainer": "TusharKhan\\DbErrorExplainer\\Laravel\\Facades\\DbExplainer"
+      }
     }
   },
   "minimum-stability": "dev",
