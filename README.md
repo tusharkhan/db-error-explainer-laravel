@@ -116,4 +116,4 @@ php artisan vendor:publish --tag=db-explainer-config
 
 ## License
 
-MIT
+MIT. See [LICENSE](LICENSE).

@@ -27,8 +27,8 @@
     "illuminate/console": "^12.0|^13.0",
     "illuminate/database": "^12.0|^13.0",
     "illuminate/support": "^12.0|^13.0",
-    "tusharkhan/db-error-explainer-core": "^1.0|@dev",
-    "tusharkhan/db-error-explainer-lib": "^1.0|@dev"
+    "tusharkhan/db-error-explainer-core": "^1.0",
+    "tusharkhan/db-error-explainer-lib": "^1.0"
   },
   "require-dev": {
     "orchestra/testbench": "^10.0|^11.0",
@@ -44,14 +44,20 @@
       "type": "path",
       "url": "../core",
       "options": {
-        "symlink": true
+        "symlink": true,
+        "versions": {
+          "tusharkhan/db-error-explainer-core": "1.0.0"
+        }
       }
     },
     {
       "type": "path",
       "url": "../lib",
       "options": {
-        "symlink": true
+        "symlink": true,
+        "versions": {
+          "tusharkhan/db-error-explainer-lib": "1.0.0"
+        }
       }
     }
   ],
